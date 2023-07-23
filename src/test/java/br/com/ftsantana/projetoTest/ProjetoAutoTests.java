@@ -3,9 +3,11 @@ package br.com.ftsantana.projetoTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+
 
 @DisplayName("Projeto para Testes Automatizados")
 public class ProjetoAutoTests {
@@ -21,9 +23,10 @@ public class ProjetoAutoTests {
         //Abrir o site
         navegador.get("http://localhost:4200/");
         //Vou fazer o preenchimento da variavel login
-
+        navegador.findElement(By.id("user")).sendKeys("Filipe");
         //Vou fazer o preenchimento da variavel senha
-
+        navegador.findElement(By.id("password")).sendKeys("123");
         //Vou clicar em confirmar
+        navegador.findElement(By.id("botao")).click();
     }
 }
