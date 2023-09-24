@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -84,6 +85,38 @@ public class ProjetoAutoTests {
         navegador.findElement(By.id("password")).sendKeys("1234");
         //Vou clicar em confirmar
         navegador.findElement(By.id("botaoDeLogin")).click();
+
+    }
+
+    @Test
+    @DisplayName("Fazendo Login na Tela")
+    public void testValoresDaTelaAposOLogin(){
+        //Abrir Chrome
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        WebDriver navegador = new ChromeDriver(options);
+
+        //Abrir o site
+        navegador.get("http://localhost:4200/");
+        //Vou fazer o preenchimento da variavel login com usuario valido
+        navegador.findElement(By.id("username")).sendKeys("usuario1");
+        //Vou fazer o preenchimento da variavel senha com senha valida
+        navegador.findElement(By.id("password")).sendKeys("1234");
+        //Vou clicar em confirmar
+        navegador.findElement(By.id("botaoDeLogin")).click();
+        //Vou Verifica a primeira Coluna de Gasto
+        WebElement element = navegador.findElement(By.cssSelector("body > app-root > app-tela-principal > div.container > mat-card > div > table > tbody > tr:nth-child(1)"));
+        String textoNaTela = element.getText();
+        String valorEsperado = "Ordem";
+        //verificação do elemento "Ordem" se o valor está correto
+        if (textoNaTela.equals(valorEsperado)) {
+            System.out.println("O texto na tela é igual ao valor esperado.");
+        } else {
+            System.out.println("O texto na tela não corresponde ao valor esperado.");
+        }
+
+
 
     }
 
