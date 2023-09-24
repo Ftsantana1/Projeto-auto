@@ -34,6 +34,8 @@ public class ProjetoAutoTests {
         navegador.findElement(By.id("password")).sendKeys("1234");
         //Vou clicar em confirmar
         navegador.findElement(By.id("botaoDeLogin")).click();
+        //Vou fechar o navegador
+        navegador.quit();
     }
 
     @Test
@@ -53,6 +55,8 @@ public class ProjetoAutoTests {
         navegador.findElement(By.id("password")).sendKeys("12345");
         //Vou clicar em confirmar
         navegador.findElement(By.id("botaoDeLogin")).click();
+        //Vou fechar o navegador
+        navegador.quit();
     }
 
     @Test
@@ -85,6 +89,8 @@ public class ProjetoAutoTests {
         navegador.findElement(By.id("password")).sendKeys("1234");
         //Vou clicar em confirmar
         navegador.findElement(By.id("botaoDeLogin")).click();
+        //Vou fechar o navegador
+        navegador.quit();
 
     }
 
@@ -115,6 +121,8 @@ public class ProjetoAutoTests {
         } else {
             System.out.println("O texto na tela não corresponde ao valor esperado.");
         }
+        //Vou fechar o navegador
+        navegador.quit();
 
 
 
