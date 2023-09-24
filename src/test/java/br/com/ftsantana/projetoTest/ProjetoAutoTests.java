@@ -23,10 +23,30 @@ public class ProjetoAutoTests {
         //Abrir o site
         navegador.get("http://localhost:4200/");
         //Vou fazer o preenchimento da variavel login
-        navegador.findElement(By.id("user")).sendKeys("Filipe");
+        navegador.findElement(By.id("username")).sendKeys("usuario1");
         //Vou fazer o preenchimento da variavel senha
-        navegador.findElement(By.id("password")).sendKeys("123");
+        navegador.findElement(By.id("password")).sendKeys("1234");
         //Vou clicar em confirmar
-        navegador.findElement(By.id("botao")).click();
+        navegador.findElement(By.id("botaoDeLogin")).click();
     }
+
+    @Test
+    @DisplayName("Fazendo Login na Tela")
+    public void testLoginNaTelaComErro(){
+        //Abrir Chrome
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        WebDriver navegador = new ChromeDriver(options);
+
+        //Abrir o site
+        navegador.get("http://localhost:4200/");
+        //Vou fazer o preenchimento da variavel login
+        navegador.findElement(By.id("username")).sendKeys("usuario4");
+        //Vou fazer o preenchimento da variavel senha
+        navegador.findElement(By.id("password")).sendKeys("12345");
+        //Vou clicar em confirmar
+        navegador.findElement(By.id("botaoDeLogin")).click();
+    }
+
 }
